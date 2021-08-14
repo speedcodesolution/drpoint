@@ -1,0 +1,531 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DrPointsDB" Class="DrPointsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=SAMM-HIRDAYESH\MSSQL2014;Initial Catalog=DrPointsDB;Persist Security Info=True;User ID=sa;MultipleActiveResultSets=True;Connect Timeout=21600" SettingsObjectName="Hospice.DAL.Properties.Settings" SettingsPropertyName="DrPointsDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tblUserRole" Member="tblUserRoles">
+    <Type Name="tblUserRole">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RoleId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblRoles" Member="tblRoles">
+    <Type Name="tblRole">
+      <Column Name="RlId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RlName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="RlDescription" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="RlIsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RlIsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblDepartment" Member="tblDepartments">
+    <Type Name="tblDepartment">
+      <Column Name="Departmentid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DepartmentCode" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="DepartmentName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblLab" Member="tblLabs">
+    <Type Name="tblLab">
+      <Column Name="Labid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LabCode" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="LabName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblLocCountry" Member="tblLocCountries">
+    <Type Name="tblLocCountry">
+      <Column Name="CountryID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CountryName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CountryCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblLocState" Member="tblLocStates">
+    <Type Name="tblLocState">
+      <Column Name="StateId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StateCode" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="StateName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CountryId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblPaymentMode" Member="tblPaymentModes">
+    <Type Name="tblPaymentMode">
+      <Column Name="PaymentModeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PaymentModeCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="PaymentMode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblEmployeeMaster" Member="tblEmployeeMasters">
+    <Type Name="tblEmployeeMaster">
+      <Column Name="EmpID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EmpCode" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="EmpName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="City" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MobileNo" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="DepartmentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DOJ" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DesignationId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Photo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StatusEmp" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ContentType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Data" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EmpType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Qualification" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Speciality" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Branchid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblLocCity" Member="tblLocCities">
+    <Type Name="tblLocCity">
+      <Column Name="CityId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CityCode" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="CityName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StateId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CountryId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblBloodGroupMaster" Member="tblBloodGroupMasters">
+    <Type Name="tblBloodGroupMaster">
+      <Column Name="BloodGroupId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="BloodGroup" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Remarks" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblGenderMaster" Member="tblGenderMasters">
+    <Type Name="tblGenderMaster">
+      <Column Name="GenderId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Remarks" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblPatientMaster" Member="tblPatientMasters">
+    <Type Name="tblPatientMaster">
+      <Column Name="PatientId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PrefixId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="GenderId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateOfBirth" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Age" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Mobile1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Mobile2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BlodGroupId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Area" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CityId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Pin" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RefferredBy" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CareOf" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Occupation" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Tag" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BranchId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblPrefixMaster" Member="tblPrefixMasters">
+    <Type Name="tblPrefixMaster">
+      <Column Name="Prefixid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Remarks" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblStatusMaster" Member="tblStatusMasters">
+    <Type Name="tblStatusMaster">
+      <Column Name="StatusId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StatusName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StatusFor" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblBillDetail" Member="tblBillDetails">
+    <Type Name="tblBillDetail">
+      <Column Name="BillDetailId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BillId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ServiceId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BillAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Tax" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="NetAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblService" Member="tblServices">
+    <Type Name="tblService">
+      <Column Name="Serviceid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SericeCode" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ServiceName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="ServiceAmount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Servicetax" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TotalAmount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ServiceColor" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Serviceownerid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ServicePriority" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ServiceType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ServiceDescription" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblPaymentMaster" Member="tblPaymentMasters">
+    <Type Name="tblPaymentMaster">
+      <Column Name="PaymentId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PatientId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BillId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BillAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="lastPaymentDt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BalanceAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="PaymentStatus" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="BranchId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblPaymentDetail" Member="tblPaymentDetails">
+    <Type Name="tblPaymentDetail">
+      <Column Name="PaymentDetailId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PaymentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PaymentDt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PaymentMode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RecivedAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="DueAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="CNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CBank" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AccountNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BranchId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdateOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblBillMaster" Member="tblBillMasters">
+    <Type Name="tblBillMaster">
+      <Column Name="BillId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PatientId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalBillAmount" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="TotalDiscount" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="TotalTax" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="TotalNetAmount" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="BranchId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AvailabilityMaster" Member="AvailabilityMasters">
+    <Type Name="AvailabilityMaster">
+      <Column Name="AvailabilityId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DoctorId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BranchId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="WorkingDay" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="WorkingFromTime" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="WorkingToTime" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblAppointment" Member="tblAppointments">
+    <Type Name="tblAppointment">
+      <Column Name="AppointmentId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PatientId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DoctorId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ServiceId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ApptDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ApptTime" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="Duration_Min" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ApptStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BranchId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Branch_Master" Member="Branch_Masters">
+    <Type Name="Branch_Master">
+      <Column Name="BranchID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BranchName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BranchLocation" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Address1" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Address2" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="City" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ContactPh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EmailID" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblUsers" Member="tblUsers">
+    <Type Name="tblUser">
+      <Column Name="UsrId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UsrLoginName" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="UsrPassword" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="UsrFirstName" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="UsrLastName" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="UsrEmail" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UsrContactNo" Type="System.String" DbType="NVarChar(33)" CanBeNull="true" />
+      <Column Name="UsrAddress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UsrCity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UsrState" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UsrCountry" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UsrPinCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UsrStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Usertype" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UsertypeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BranchId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.sp_GetUserRoleList" Method="sp_GetUserRoleList">
+    <ElementType Name="sp_GetUserRoleListResult">
+      <Column Name="userid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ÚserName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="RoleName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="RoleId" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_GetPaymentDetailList" Method="sp_GetPaymentDetailList">
+    <ElementType Name="sp_GetPaymentDetailListResult">
+      <Column Name="pmodPaymentMode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="serviceName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="PaymentDetailId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PaymentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PaymentDt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PaymentMode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RecivedAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="DueAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="CNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CBank" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AccountNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BranchId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdateOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_GetAvailabilTime" Method="sp_GetAvailabilTime">
+    <Parameter Name="branchid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="doctorid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="serviceid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="appointmentdate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Isallsolat" Parameter="isallsolat" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_GetAvailabilTimeResult">
+      <Column Name="AvailabilTime" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_GetAppointmentList" Method="sp_GetAppointmentList">
+    <Parameter Name="branchid" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_GetAppointmentListResult">
+      <Column Name="Doctor" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PatinetName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Mobile1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ServiceName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="ServiceAmount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Servicetax" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TotalAmount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StatusName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AppointmentId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PatientId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DoctorId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ServiceId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ApptDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ApptTime" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="Duration_Min" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ApptStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BranchId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_GetPatientDetailList" Method="sp_GetPatientDetailList">
+    <Parameter Name="branchid" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_GetPatientDetailListResult">
+      <Column Name="PatientId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Prefix" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[Patient Name]" Member="Patient_Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Gender" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DateOfBirth" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Age" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Mobile1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Mobile2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[Blood Group]" Member="Blood_Group" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Area" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CityId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Pin" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RefferredBy" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CareOf" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Occupation" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Tag" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BranchId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Prefix1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BloodGroup" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Gender1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_GetBillDetail" Method="sp_GetBillDetail">
+    <Parameter Name="patientid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="serviceid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Apptdate" Parameter="apptdate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="branchid" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_GetBillDetailResult">
+      <Column Name="paymntid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pmBillAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="lastPaymentDt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BalanceAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="PaymentStatus" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="pmBranchid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pdPaymentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PaymentDt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PaymentModeId" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RecivedAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="pdDueAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="CNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CBank" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AccountNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="pdBranchId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BillDetailId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BillId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ServiceId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BillAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Tax" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="NetAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="PaymentMode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ServiceName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_GetUserList" Method="sp_GetUserList">
+    <Parameter Name="usertype" Type="System.Int32" DbType="Int" />
+    <Parameter Name="branchid" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_GetUserListResult">
+      <Column Name="UsrId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UsrLoginName" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="UsrPassword" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="UsrFirstName" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="UsrLastName" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="UsrEmail" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UsrContactNo" Type="System.String" DbType="NVarChar(33)" CanBeNull="true" />
+      <Column Name="UsrAddress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UsrCity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UsrState" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UsrCountry" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UsrPinCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UsrStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Usertype" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UsertypeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BranchId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EmpCode" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="PatientName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UStatus" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_GetBilldetailsforAddBill" Method="sp_GetBilldetailsforAddBill">
+    <Parameter Name="branchid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="patinetid" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_GetBilldetailsforAddBillResult">
+      <Column Name="SericeCode" Type="System.String" DbType="VarChar(163)" CanBeNull="true" />
+      <Column Name="BillId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PatientId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalBillAmount" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="TotalDiscount" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="TotalTax" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="TotalNetAmount" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="BranchId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BalanceAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Serviceid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_InsertBilldetails" Method="sp_InsertBilldetails">
+    <Parameter Name="PatientID" Parameter="patientID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TotalDiscount" Parameter="totalDiscount" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BranchId" Parameter="branchId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CreatedBy" Parameter="createdBy" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ApptDate" Parameter="apptDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ServiceId" Parameter="serviceId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BillId" Parameter="billId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DoctorId" Parameter="doctorId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ApptTime" Parameter="apptTime" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="Duration_Min" Parameter="duration_Min" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ApptStatus" Parameter="apptStatus" Type="System.Char" DbType="NChar(1)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

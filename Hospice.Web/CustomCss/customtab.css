@@ -1,0 +1,104 @@
+﻿
+.card.card-tabs:not(.card-outline) > .card-header {
+    border-bottom: 0;
+}
+
+.card-primary:not(.card-outline) > .card-header, .card-primary:not(.card-outline) > .card-header a {
+    color: #fff;
+}
+
+.card-primary:not(.card-outline) > .card-header {
+    background-color: #406dac;
+}
+.card .card-header {
+    
+    -webkit-border-radius: 0x 0px 0 0;
+    -moz-border-radius: 0px 0px 0 0;
+    border-radius: 0px 0px 0 0;
+}
+.card-header:first-child {
+    border-radius: unset ;/*calc(.25rem - 1px) calc(.25rem - 1px) 0 0; */
+}
+.card-header {
+    background-color: transparent;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    padding: .75rem 1.25rem;
+    position: relative;
+    /*border-top-left-radius: .25rem;*/
+    /*border-top-right-radius: .25rem;*/
+    margin-bottom: 0;
+}
+
+.p-0 {
+    padding: 0 !important;
+}
+
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+.card-body::after, .card-footer::after, .card-header::after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+}
+
+
+.nav-tabs .nav-link {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    -webkit-border-radius: 0px 0px 0 0 !important;
+}
+
+.nav-tabs.flex-column .nav-link {
+    border-bottom-left-radius: 0px;
+}
+
+.card-primary:not(.card-outline) > .card-header a.active {
+    color: #1f2d3d;
+}
+
+.nav-tabs {
+    padding: 0px;
+    border-bottom: 0px solid #d5e7ff;
+}
+
+    .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+        border-color: transparent !important;
+    }
+
+@media (min-width: 576px) {
+    .col-sm-3 {
+        -ms-flex: 0 0 12%;
+        flex: 0 0 12%;
+        max-width: 12%;
+    }
+}
+
+@media (min-width: 576px) {
+    .col-sm-9 {
+        -ms-flex: 0 0 88%;
+        flex: 0 0 88%;
+        max-width: 88%;
+    }
+}
+

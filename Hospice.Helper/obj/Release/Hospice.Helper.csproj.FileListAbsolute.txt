@@ -1,0 +1,12 @@
+D:\Projects\A_PProject\Hospital\Hospice_190421-merge\Hospice.Helper\bin\Release\Hospice.Helper.dll
+D:\Projects\A_PProject\Hospital\Hospice_190421-merge\Hospice.Helper\bin\Release\Hospice.Helper.pdb
+D:\Projects\A_PProject\Hospital\Hospice_190421-merge\Hospice.Helper\obj\Release\Hospice.Helper.csprojAssemblyReference.cache
+D:\Projects\A_PProject\Hospital\Hospice_190421-merge\Hospice.Helper\obj\Release\Hospice.Helper.csproj.CoreCompileInputs.cache
+D:\Projects\A_PProject\Hospital\Hospice_190421-merge\Hospice.Helper\obj\Release\Hospice.Helper.dll
+D:\Projects\A_PProject\Hospital\Hospice_190421-merge\Hospice.Helper\obj\Release\Hospice.Helper.pdb
+D:\Outlookfile\Hospital\Hospice_170621-merge\Hospice.Helper\bin\Release\Hospice.Helper.dll
+D:\Outlookfile\Hospital\Hospice_170621-merge\Hospice.Helper\bin\Release\Hospice.Helper.pdb
+D:\Outlookfile\Hospital\Hospice_170621-merge\Hospice.Helper\obj\Release\Hospice.Helper.csprojAssemblyReference.cache
+D:\Outlookfile\Hospital\Hospice_170621-merge\Hospice.Helper\obj\Release\Hospice.Helper.csproj.CoreCompileInputs.cache
+D:\Outlookfile\Hospital\Hospice_170621-merge\Hospice.Helper\obj\Release\Hospice.Helper.dll
+D:\Outlookfile\Hospital\Hospice_170621-merge\Hospice.Helper\obj\Release\Hospice.Helper.pdb
